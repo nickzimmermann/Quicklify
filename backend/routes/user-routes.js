@@ -1,5 +1,4 @@
 const express = require('express');
-// We only need the routing methods from Express
 const router = express.Router();
 const bcryptjs = require('bcryptjs');
 const UserModel = require('../models/UserModel.js');
