@@ -4,6 +4,7 @@ import React from 'react';
 import Cover from './components/Cover';
 import QCardSection from './components/QCardSection.js';
 import QCardSection2 from './components/QCardSection2.js';
+import Footer from './components/Footer.js';
 
 
 
@@ -57,6 +58,7 @@ function App() {
       <Cover covertitle="Go Paperless! Go QR!" coverdescription="The QR revolution is here. No more paper manuals no more hunting for them! Simply scan and scroll! Save the environment while you're at it!" getstartedbtn="Get Started"/>
       <QCardSection content={howItWorks}/>      
       <QCardSection2 content={WhyUs}/>
+      <Footer/>
     </div>
   );
 }
