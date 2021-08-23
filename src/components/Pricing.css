@@ -19,7 +19,7 @@
     overflow: auto;
   }
   
-  .card {
+  .pricecard {
     background-color: #454849;
     border: 1px solid #ddd;
     border-radius: 2rem;
@@ -62,7 +62,7 @@
     }
   }
   
-  .card {
+  .pricecard {
     &-description,
     &-billing,
     &-features,
@@ -84,7 +84,8 @@
         margin-bottom: .5rem;
       }
       
-      .price {
+      .pricecard
+       {
         font-size: 32px;
         font-weight: 700;
       }
@@ -108,7 +109,7 @@
         font-weight: 600;
         padding: .5rem 0;
         width: 100%;
-        transitsion: .3s ease all;
+        transition: .3s ease all;
       }
       
       > button:hover {

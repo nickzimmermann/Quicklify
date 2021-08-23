@@ -12,10 +12,10 @@ function NavBar(props) {
                 <button className="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span className="navbar-toggler-icon"></span></button>
                 <div className="collapse navbar-collapse" id="navbarResponsive">
                     <ul className="navbar-nav ms-auto my-1 my-lg-0 me-auto px-5 " style={{"position": "static"}}>
-                        <li className="nav-item"><a className="nav-link" href="#about">{props.label1}</a></li>
-                        <li className="nav-item"><a className="nav-link" href="#services">{props.label2}</a></li>
-                        <li className="nav-item"><a className="nav-link" href="#portfolio">{props.label3}</a></li>
-                        <li className="nav-item"><a className="nav-link" href="#how it works">{props.label4}</a></li>
+                        <li className="nav-item"><a className="nav-link" href="#home">{props.label1}</a></li>
+                        <li className="nav-item"><a className="nav-link" href="#why us">{props.label2}</a></li>
+                        <li className="nav-item"><a className="nav-link" href="#how it works">{props.label3}</a></li>
+                        <ReactLink className="nav-item" to="/pricing"><a className="nav-link" href="#pricing">{props.label4}</a></ReactLink>
                     </ul>
                         <ReactLink type="button" className="btn btn-primary px-4" style= { {"margin-right": ".3cm", "margin-left": "1cm", "borderRadius": "3rem"} } to="/pricing">{props.btnlabel1}</ReactLink>
                         <ReactLink type="button" style={{"borderRadius": "3rem"}} className="btn btn-primary px-4"to="login">{props.btnlabel2}</ReactLink>
