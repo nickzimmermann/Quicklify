@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link as ReactLink } from 'react-router-dom';
 import './NavBar.css';
 
 function NavBar(props) {
@@ -17,8 +17,8 @@ function NavBar(props) {
                         <li className="nav-item"><a className="nav-link" href="#portfolio">{props.label3}</a></li>
                         <li className="nav-item"><a className="nav-link" href="#how it works">{props.label4}</a></li>
                     </ul>
-                        <button type="button" className="btn btn-primary px-4" style= { {"margin-right": ".3cm", "margin-left": "1cm", "borderRadius": "3rem"} }>{props.btnlabel1}</button>
-                        <button type="button" style={{"borderRadius": "3rem"}} className="btn btn-primary px-4">{props.btnlabel2}</button>
+                        <ReactLink type="button" className="btn btn-primary px-4" style= { {"margin-right": ".3cm", "margin-left": "1cm", "borderRadius": "3rem"} } to="/pricing">{props.btnlabel1}</ReactLink>
+                        <ReactLink type="button" style={{"borderRadius": "3rem"}} className="btn btn-primary px-4"to="login">{props.btnlabel2}</ReactLink>
                 </div>
             </div>
         </nav>
