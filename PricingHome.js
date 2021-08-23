@@ -1,3 +1,7 @@
+import Pricing from './Pricing.css';
+import { Link as ReactLink } from 'react-router-dom';
+
+
 function CardDescription({ title, description }) {	
 	return (
 		<div className="card-description">
@@ -43,7 +47,7 @@ function CardFeatures({ data }) {
 function CardAction({ clickMe }) {
 	return (
 		<div className="card-action">
-			<button onClick={clickMe}>BUY NOW</button>
+      <ReactLink className="btn btn-primary mx-1" to="/register">Subscribe</ReactLink>
 		</div>
 	);
 };
