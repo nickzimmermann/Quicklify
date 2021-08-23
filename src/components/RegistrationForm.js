@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import NavBar from './NavBar.js';
 
 const RegistrationForm = () => {
 
@@ -99,7 +100,7 @@ const RegistrationForm = () => {
     return (
         <div className="container" style={{"marginTop": "5em", "maxWidth": "40em"}}>
             
-            <h1>Register your Interest</h1>
+            <h1 className="pt-5">Register your Interest</h1>
             <br/>
 
             <label>Enter your firstname *</label>
