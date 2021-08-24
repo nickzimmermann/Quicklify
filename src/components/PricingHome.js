@@ -1,23 +1,25 @@
 import './Pricing.css';
 import { Link as ReactLink } from 'react-router-dom';
 
+
 function CardDescription({ title, description }) {	
 	return (
-		<div className="card-description">
-			<h2>{ title }</h2>
-			<p>{ description }</p>
-		</div>
+		<div className="card-description" >
+			<h2 style={{"font-size": "26px",
+        "margin-bottom": ".5rem", "text-align": "center"}}><b>{ title }</b></h2>
+			<p style={{"text-align": "center"}}>{ description }</p>
+		</div>  
 	);
 };
 
 function CardBilling({ price, recurrency }) {
 	return (
 		<div className="card-billing">
-			<p>
+			<p style={{"text-align": "center"}}>
 				<strong className="price">$ { price }</strong>
         <strong> / mo.</strong>
 			</p>
-			<p>
+			<p style={{"text-align": "center"}}>
 				<span className="recurrency">
 					Billed Anually or	$ { recurrency }/monthly
 				</span>
@@ -46,7 +48,7 @@ function CardFeatures({ data }) {
 function CardAction({ clickMe }) {
 	return (
 		<div className="card-action">
-      <ReactLink className="btn btn-primary mx-1" to="/register">Subscribe</ReactLink>
+      <ReactLink style={{"align": "center"}} className="btn btn-primary ms-5 px-4" to="/register">Subscribe</ReactLink>
 		</div>
 	);
 };
@@ -65,11 +67,11 @@ function PricingCard(props) {
 	console.log(data, "this is the data from props")
 	return (
 		<div className={`card pricing-card ${type}`}>
-      { (mostPopular) ? <span className="most-popular">Most Popular</span> : null }
+      { (mostPopular) ? <span style={{"text-align": "center"}} className="most-popular">Most Popular</span> : null }
 			<CardDescription title={title} description={description} />
 			<CardBilling price={price} recurrency={recurrency} />
 			<CardFeatures data={data} />
-			<CardAction clickMe={clickMe} />
+			<CardAction style={{"text-align": "center", "display": "inline-block"}}clickMe={clickMe}  />
 		</div>
 	);
 };
