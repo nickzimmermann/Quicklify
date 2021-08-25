@@ -18,7 +18,8 @@ function NavBar(props) {
                         <ReactLink className="nav-item" to="/pricing"><a className="nav-link" href="#pricing">{props.label4}</a></ReactLink>
                     </ul>
                         <ReactLink type="button" className="btn btn-primary px-4" style= { {"margin-right": ".3cm", "margin-left": "1cm", "borderRadius": "3rem"} } to="/pricing">{props.btnlabel1}</ReactLink>
-                        <ReactLink type="button" style={{"borderRadius": "3rem"}} className="btn btn-primary px-4"to="login">{props.btnlabel2}</ReactLink>
+                        <ReactLink type="button" style={{"borderRadius": "3rem"}} className="btn btn-primary px-4"to="/login">{props.btnlabel2}</ReactLink>
+                        <ReactLink type="button" style={{"margin-right": ".3cm", "margin-left": ".3cm", "borderRadius": "3rem"}} className="btn btn-primary px-4" to="/profile">Profile</ReactLink>
                 </div>
             </div>
         </nav>

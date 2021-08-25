@@ -16,7 +16,7 @@ function CardBilling({ price, recurrency }) {
 	return (
 		<div className="card-billing">
 			<p style={{"text-align": "center"}}>
-				<strong className="price">$ { price }</strong>
+				<strong className="price"> { price }</strong>
         <strong> / mo.</strong>
 			</p>
 			<p style={{"text-align": "center"}}>
