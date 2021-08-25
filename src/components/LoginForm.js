@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { Redirect } from 'react-router-dom';
 // Connect to the context (i.e, global state)
 import { UserContext } from './UserContext';
 
@@ -79,56 +80,63 @@ function LoginForm() {
         }
     }
 
-    return (
-        <div className="container" style={{maxWidth: 600, minHeight: 'calc(100vh - 112px)'}}>
+    if (state === "successful" ) {
+        return (
+            <Redirect to="/client-area" />
+        )
+    }
+    else {
+        return (
+            <div className="container" style={{maxWidth: 600, minHeight: 'calc(100vh - 112px)'}}>
 
-            <h1 className="py-5">Login</h1>
+                <h1 className="py-5">Login</h1>
 
-            <div className="mb-3">
-                <label for="email" className="form-label">Email address</label>
-                <input ref={ (elem)=>emailField = elem } type="email" className="form-control" id="email" aria-describedby="emailHelp" />
-                <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+                <div className="mb-3">
+                    <label for="email" className="form-label">Email address</label>
+                    <input ref={ (elem)=>emailField = elem } type="email" className="form-control" id="email" aria-describedby="emailHelp" />
+                    <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+                </div>
+
+                <div className="mb-3">
+                    <label for="password" className="form-label">Password</label>
+                    <input ref={ (elem)=>passwordField = elem } type="password" className="form-control" id="password" aria-describedby="password" />
+                </div>
+
+                {
+                    state !== "sending" && state !== "successful" &&
+                    <button 
+                    onClick={login}
+                    className="btn btn-primary mb-3" type="button">Submit</button>
+                }
+
+                { 
+                    state === "validation error" &&
+                    <div className="alert alert-danger" role="alert">
+                        Incorrect email or password.
+                    </div>
+                }
+
+                {
+                    state === "successful" &&
+                    <div className="alert alert-success" role="alert">
+                        You have logged in successfully!
+                    </div>
+                }
+
+                {
+                    state === "unsuccessful" &&
+                    <div className="alert alert-danger" role="alert">
+                        Internal error. Please try again later.
+                    </div>
+                }
+
+                {
+                    state === "sending" &&
+                    <p>Loading...</p>
+                }
             </div>
-
-            <div className="mb-3">
-                <label for="password" className="form-label">Password</label>
-                <input ref={ (elem)=>passwordField = elem } type="password" className="form-control" id="password" aria-describedby="password" />
-            </div>
-
-            {
-                state !== "sending" && state !== "successful" &&
-                <button 
-                onClick={login}
-                className="btn btn-primary mb-3" type="button">Submit</button>
-            }
-
-            { 
-                state === "validation error" &&
-                <div className="alert alert-danger" role="alert">
-                    Incorrect email or password.
-                </div>
-            }
-
-            {
-                state === "successful" &&
-                <div className="alert alert-success" role="alert">
-                    You have logged in successfully!
-                </div>
-            }
-
-            {
-                state === "unsuccessful" &&
-                <div className="alert alert-danger" role="alert">
-                    Internal error. Please try again later.
-                </div>
-            }
-
-            {
-                state === "sending" &&
-                <p>Loading...</p>
-            }
-        </div>
-    )
+        )
+    }
 }
 
 export default LoginForm;
