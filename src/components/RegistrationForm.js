@@ -19,9 +19,22 @@ const RegistrationForm = () => {
     let avatarInput;
     let termsAndConditionsCheckbox;
 
-    // formData is a constructor for creating an object 
-    // that works like an HTML ffrom element
-    const formData = new FormData ();
+    // FormData is a constructor for creating an object
+    // that works like an HTML form element
+    const formData = new FormData();
+
+    // attachFile() will append to formData the avatar file
+    const attachFile = (evt) => {
+        // Create an array from the file attachments
+        const files = Array.from(evt.target.files);
+
+        // For each attachment, append the file to formData
+        files.forEach(
+            (fileAttachment, index) => {
+                formData.append(index, fileAttachment);
+            }
+        );
+    }
 
     const register = () => {
 
@@ -55,8 +68,8 @@ const RegistrationForm = () => {
         else {
             setState("loading");
             setErrorsState([]);
-            // 2.1 If the submission is successful, set state to "successful"
-
+           
+            
             formData.append('firstName', firstNameField.value);
             formData.append('lastName', lastNameField.value);
             formData.append('email', emailField.value);
@@ -65,17 +78,16 @@ const RegistrationForm = () => {
 
             fetch(
                 `${process.env.REACT_APP_BACKEND}/users/create`,
-                    {
-                        method: 'POST',
-                        body: formData
-                    }
+                {
+                    method: 'POST',
+                    body: formData
+                }
             )
-            // the .json() will convert a 'stringified' object to a JavaScript object
-            .then (
-                
-                    (backendResponseJson) => backendResponseJson.json()
-            
+            // The .json() method will convert a 'stringified' object to a JavaScript object
+            .then(
+                (backendResponseJson) => backendResponseJson.json()
             )
+             // 2.1 If the submission is successful, set state to "successful"
             .then(
                 (backendResponse) => {
                     console.log(backendResponse);
@@ -83,24 +95,23 @@ const RegistrationForm = () => {
                         setState("successful");
                     } else {
                         setState("unsuccessful");
-                    }                    
+                    }
                 }
             )
+            // 2.2 If the submission is successful, set state to "unsucessful"
             .catch(
                 (err) => {
                     console.log(err);
                     setState("unsuccessful");
                 }
-            )
-            // 2.2 If the submission is successful, set state to "unsucessful"
+            );
         }
-
     }
 
     return (
-        <div className="container" style={{"marginTop": "5em", "maxWidth": "40em"}}>
+        <div className="container" style={{"marginTop": "5em", "max-width": "40em"}}>
             
-            <h1 className="pt-5">Register your Interest</h1>
+            <h1>Register your Interest</h1>
             <br/>
 
             <label>Enter your firstname *</label>
@@ -121,7 +132,10 @@ const RegistrationForm = () => {
             <br/><br/>
 
             <label>Upload your profile picture</label>
-            <input ref={(element)=>{ avatarInput = element}} className="field form-control" id="photo" name="file" type="file" multiple="multiple"/>
+            <input ref={(element)=>{ avatarInput = element}} 
+            onChange={attachFile}
+            className="field form-control" id="photo" name="file" 
+            type="file" multiple="multiple"/>
 
             <br/><br/>
 
@@ -136,7 +150,7 @@ const RegistrationForm = () => {
                     <button 
                     onClick={register}
                     className="btn btn-primary"
-                    style={{"padding": "10px", "fontSize": "16px"}}>
+                    style={{"padding": "10px", "font-size": "16px"}}>
                         Submit
                     </button><br/><br/>
                 </div>
@@ -165,14 +179,14 @@ const RegistrationForm = () => {
             }
 
             {
-                state === "loading" &&
-                <p>Loading...</p>
-            }
-            {
                 state === "unsuccessful" &&
                 <div className="alert alert-danger">An error occured. Please try again.</div>
             }
 
+            {
+                state === "loading" &&
+                <p>Loading...</p>
+            }
         </div>
     )
 };
