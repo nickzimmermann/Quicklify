@@ -4,7 +4,7 @@ import { Link as ReactLink } from 'react-router-dom';
 
 function CardDescription({ title, description }) {	
 	return (
-		<div className="card-description" >
+		<div className="card-description pt-4" >
 			<h2 style={{"font-size": "26px",
         "margin-bottom": ".5rem", "text-align": "center"}}><b>{ title }</b></h2>
 			<p style={{"text-align": "center"}}>{ description }</p>
@@ -16,7 +16,7 @@ function CardBilling({ price, recurrency }) {
 	return (
 		<div className="card-billing">
 			<p style={{"text-align": "center"}}>
-				<strong className="price"> { price }</strong>
+				<strong className="price">$ { price }</strong>
         <strong> / mo.</strong>
 			</p>
 			<p style={{"text-align": "center"}}>
@@ -66,7 +66,7 @@ function PricingCard(props) {
   } = props;
 	console.log(data, "this is the data from props")
 	return (
-		<div className={`card pricing-card ${type}`}>
+		<div className={`card pricing-card pt-4 ${type}`}>
       { (mostPopular) ? <span style={{"text-align": "center"}} className="most-popular">Most Popular</span> : null }
 			<CardDescription title={title} description={description} />
 			<CardBilling price={price} recurrency={recurrency} />
