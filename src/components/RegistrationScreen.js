@@ -8,6 +8,7 @@ function RegistrationScreen() {
       btnlabel1="Register"
       btnlabel2="Login"/>
             <RegistrationForm />
+            <br></br>
         </div>
     )
 };
