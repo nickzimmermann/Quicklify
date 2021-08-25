@@ -112,7 +112,7 @@ function LoginForm() {
             {
                 state === "successful" &&
                 <div className="alert alert-success" role="alert">
-                    You have registered successfully!
+                    You have logged in successfully!
                 </div>
             }
 
