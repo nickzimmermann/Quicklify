@@ -1,5 +1,6 @@
 import { Link as ReactLink } from 'react-router-dom';
 import './NavBar.css';
+import {HashLink as Link} from 'react-router-hash-link';
 
 function NavBar(props) {
     
@@ -13,8 +14,11 @@ function NavBar(props) {
                 <div className="collapse navbar-collapse" id="navbarResponsive">
                     <ul className="navbar-nav ms-auto my-1 my-lg-0 me-auto px-5 " style={{"position": "static"}}>
                         <ReactLink className="nav-item" to="/home"><a className="nav-link" href="#home">{props.label1}</a></ReactLink>
-                        <li className="nav-item"><a className="nav-link" href="#how it works">{props.label3}</a></li>
-                        <li className="nav-item"><a className="nav-link" href="#why us">{props.label2}</a></li>
+                        <li className="nav-item">
+                        <Link className="nav-link" href="#how it works" to="#howitworks">{props.label3}</Link>
+                        </li>
+                        <li className="nav-item">
+                        <Link className="nav-link" href="#whyus" to="#whyus">{props.label2}</Link></li>
                         <ReactLink className="nav-item" to="/pricing"><a className="nav-link" href="#pricing">{props.label4}</a></ReactLink>
                     </ul>
                         <ReactLink type="button" className="btn btn-primary px-4" style= { {"margin-right": ".3cm", "margin-left": "1cm", "borderRadius": "3rem"} } to="/pricing">{props.btnlabel1}</ReactLink>

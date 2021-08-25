@@ -111,7 +111,7 @@ const RegistrationForm = () => {
     return (
         <div className="container" style={{"marginTop": "5em", "max-width": "40em"}}>
             
-            <h1>Register your Interest</h1>
+            <h2>Register your Interest</h2>
             <br/>
 
             <label>Enter your firstname *</label>
