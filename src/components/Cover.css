@@ -10,7 +10,7 @@ body.html{
 }
 h1{
     font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    font-size: 5rem;
+    font-size: 6rem;
     margin: 0;
     margin-bottom: 0.5rem;
     font-weight: 500;
@@ -22,10 +22,10 @@ p{
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
-    font-size: 1.20rem;
+    font-size: 1.10rem;
 }
 hr.divider {
-    height: .5rem;
+    height: 1rem;
     max-width: 5rem;
     margin: 1.5rem auto;
     background-color: #fbfcff;

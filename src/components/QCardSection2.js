@@ -2,7 +2,7 @@ import React from 'react';
 
 function QCardSection2(props) {
     return (
-        <div className="container py-5">
+        <div className="container py-5" id="whyus">
             {
                 props.content.map(
                     function(element, index) {
