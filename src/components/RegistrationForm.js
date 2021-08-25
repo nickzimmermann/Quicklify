@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import NavBar from './NavBar.js';
 
 const RegistrationForm = () => {
@@ -108,87 +109,94 @@ const RegistrationForm = () => {
         }
     }
 
-    return (
-        <div className="container" style={{"marginTop": "5em", "max-width": "40em"}}>
-            
-            <h2>Register your Interest</h2>
-            <br/>
+    if( state === "successful") {
+        return (
+            <Redirect to="/login" />
+        )
+    }
+    else {
+        return (
+            <div className="container" style={{"marginTop": "5em", "max-width": "40em"}}>
+                
+                <h2>Register your Interest</h2>
+                <br/>
 
-            <label>Enter your firstname *</label>
-            <input ref={(element)=>{ firstNameField =  element}} className="field form-control" name="firstName" type="text" />
+                <label>Enter your firstname *</label>
+                <input ref={(element)=>{ firstNameField =  element}} className="field form-control" name="firstName" type="text" />
 
-            <label>Enter your lastname *</label>
-            <input ref={(element)=>{ lastNameField =  element}} className="field form-control" name="lastName" type="text" />
+                <label>Enter your lastname *</label>
+                <input ref={(element)=>{ lastNameField =  element}} className="field form-control" name="lastName" type="text" />
 
-            <label>Enter your email *</label>
-            <input ref={(element)=>{ emailField =  element}} className="field form-control" name="email" type="text" />
+                <label>Enter your email *</label>
+                <input ref={(element)=>{ emailField =  element}} className="field form-control" name="email" type="text" />
 
-            <label>Enter a password *</label>
-            <input ref={(element)=>{ passwordField =  element}} className="field form-control" name="password" autocomplete="off" type="password" />
+                <label>Enter a password *</label>
+                <input ref={(element)=>{ passwordField =  element}} className="field form-control" name="password" autocomplete="off" type="password" />
 
-            <label>Enter your phone (optional)</label>
-            <input ref={(element)=>{ phoneNumberField =  element}} className="field form-control" name="phoneNumber" type="text" />
+                <label>Enter your phone (optional)</label>
+                <input ref={(element)=>{ phoneNumberField =  element}} className="field form-control" name="phoneNumber" type="text" />
 
-            <br/><br/>
+                <br/><br/>
 
-            <label>Upload your profile picture</label>
-            <input ref={(element)=>{ avatarInput = element}} 
-            onChange={attachFile}
-            className="field form-control" id="photo" name="file" 
-            type="file" multiple="multiple"/>
+                <label>Upload your profile picture</label>
+                <input ref={(element)=>{ avatarInput = element}} 
+                onChange={attachFile}
+                className="field form-control" id="photo" name="file" 
+                type="file" multiple="multiple"/>
 
-            <br/><br/>
+                <br/><br/>
 
-            <label>Do you agree to terms &amp; conditions? *</label>
-            <input ref={(element)=>termsAndConditionsCheckbox = element} className="checkbox" name="termsConditions" type="checkbox" /> Yes
+                <label>Do you agree to terms &amp; conditions? *</label>
+                <input ref={(element)=>termsAndConditionsCheckbox = element} className="checkbox" name="termsConditions" type="checkbox" /> Yes
 
-            <br/><br/>
+                <br/><br/>
 
-            {
-                state !== "loading" &&
-                <div>
-                    <button 
-                    onClick={register}
-                    className="btn btn-primary"
-                    style={{"padding": "10px", "font-size": "16px"}}>
-                        Submit
-                    </button><br/><br/>
-                </div>
-            }
+                {
+                    state !== "loading" &&
+                    <div>
+                        <button 
+                        onClick={register}
+                        className="btn btn-primary"
+                        style={{"padding": "10px", "font-size": "16px"}}>
+                            Submit
+                        </button><br/><br/>
+                    </div>
+                }
 
-            {
-                state === "validationFailed" &&
-                <div className="alert alert-danger">
+                {
+                    state === "validationFailed" &&
+                    <div className="alert alert-danger">
 
-                    <ul>
-                        {
-                            errorsState.map(
-                                (error) => {
-                                    return <li>{error}</li>
-                                }
-                            )
-                        }
-                    </ul>
+                        <ul>
+                            {
+                                errorsState.map(
+                                    (error) => {
+                                        return <li>{error}</li>
+                                    }
+                                )
+                            }
+                        </ul>
 
-                </div>
-            }
+                    </div>
+                }
 
-            {
-                state === "successful" &&
-                <div className="alert alert-success">You have a successfully created an account</div>
-            }
+                {
+                    state === "successful" &&
+                    <div className="alert alert-success">You have a successfully created an account</div>
+                }
 
-            {
-                state === "unsuccessful" &&
-                <div className="alert alert-danger">An error occured. Please try again.</div>
-            }
+                {
+                    state === "unsuccessful" &&
+                    <div className="alert alert-danger">An error occured. Please try again.</div>
+                }
 
-            {
-                state === "loading" &&
-                <p>Loading...</p>
-            }
-        </div>
-    )
+                {
+                    state === "loading" &&
+                    <p>Loading...</p>
+                }
+            </div>
+        )
+    }
 };
 
 export default RegistrationForm;
