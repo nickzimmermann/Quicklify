@@ -4,6 +4,7 @@ import RegistrationScreen from './components/RegistrationScreen.js';
 import './App.css';
 import PricingScreen from './components/PricingScreen.js'
 import LoginScreen from './components/LoginScreen.js'
+import ProfileScreen from './components/ProfileScreen.js'
 
 function App() {
   return (
@@ -13,6 +14,8 @@ function App() {
         <Route path="/register" exact={true} component={RegistrationScreen} />
         <Route path="/pricing" exact={true} component={PricingScreen} />
         <Route path="/login" exact={true} component={LoginScreen} />
+        <Route path="/home" exact={true} component={MainScreen} />
+        <Route path="/profile" exact={true} component={ProfileScreen} />
       </Switch>
     </BrowserRouter>
   )
