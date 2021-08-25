@@ -5,11 +5,12 @@ import React from 'react';
 function QCardSection(props) {
     return (
         <section className="page-section" id="about">
-            <div className="card-box text-center d-flex py-5 px-5">
-                
-                <h2 class="card-title" style={{"font-size": "3.5rem","font-family": "Merriweather Sans"}}>How It Works</h2>
-                <br></br>
-                <div className="container px-4 py-5" id="icon-grid">
+
+            <h2 class="card-title pt-4" style={{"font-size": "3.5rem","font-family": "Merriweather Sans", "text-align": "center"}}>How It Works</h2>
+
+            <div className="card-box text-center d-flex py-5 px-5">           
+
+                <div className="container px-4" id="icon-grid">
                 
                     <div className="row">
                         {
